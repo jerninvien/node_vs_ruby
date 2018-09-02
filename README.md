@@ -35,33 +35,7 @@ Memory: 1.12 MB
 ```
 
 
-### Compare Ruby vs Node
-
-```ruby
-require_relative './helpers'
-require 'csv'
-
-print_memory_usage do
-  print_time_spent do
-    sum = 0
-
-    CSV.foreach('data.csv', headers: true) do |row|
-      sum += row['id'].to_i
-    end
-
-    puts "Sum: #{sum}"
-  end
-end
-```
-
-```$ ruby parse.rb```
-```bash
-Sum: 499999500000
-Time: 11.88s
-Memory: 0.57 MB
-```
-
----
+### Compare Node vs Ruby
 
 ```javascript
 var fs = require('fs');
@@ -88,4 +62,29 @@ csv
 Sum:  499999500000
 Time:  5.74s
 Memory: 18.05 MB
+```
+---
+
+```ruby
+require_relative './helpers'
+require 'csv'
+
+print_memory_usage do
+  print_time_spent do
+    sum = 0
+
+    CSV.foreach('data.csv', headers: true) do |row|
+      sum += row['id'].to_i
+    end
+
+    puts "Sum: #{sum}"
+  end
+end
+```
+
+```$ ruby parse.rb```
+```bash
+Sum: 499999500000
+Time: 11.88s
+Memory: 0.57 MB
 ```
