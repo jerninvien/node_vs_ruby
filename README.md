@@ -3,7 +3,7 @@ Comparisons of memory usage and speed of common tasks using Node and Ruby
 
 Ruby adapted from https://dalibornasevic.com/posts/68-processing-large-csv-files-with-ruby
 
-### Generate 1,000,000 line csv file with filler text
+### Generate 1,000,000 line csv file
 
 ```ruby
 require 'csv'
