@@ -1,0 +1,23 @@
+{
+  "name": "node_v_ruby",
+  "version": "1.0.0",
+  "description": "Comparisons of memory usage and speed of common tasks using Node and Ruby",
+  "main": "node_parse.js",
+  "dependencies": {
+    "fast-csv": "^2.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerninvien/node_vs_ruby.git"
+  },
+  "author": "JaunT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jerninvien/node_vs_ruby/issues"
+  },
+  "homepage": "https://github.com/jerninvien/node_vs_ruby#readme"
+}
