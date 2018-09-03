@@ -43,7 +43,7 @@ Memory: 1.12 MB
 
 ### Run Comparisons
 
-These scripts should not load the entire test file (~75MB) into memory, rather they should stream the contents. You should be able to run them on any CSV regardless of file size or hardware restraints.
+These scripts should not load the entire test file (~750MB) into memory, rather they should stream the contents. You should be able to run them on any CSV regardless of file size or hardware restraints.
 
 ```javascript
 var fs = require('fs');
@@ -69,9 +69,9 @@ csv
 
 ```$ node node_parse_fast_csv.js```
 ```bash
-Sum:  499999500000
-Time:  4.978s
-Memory: 14.7 MB
+Sum:  49999995000000
+Time:  49.998s
+Memory: 6.2 MB
 ```
 
 ---
@@ -101,9 +101,9 @@ fs.createReadStream('data.csv').pipe(parser);
 
 ```$ node node_parse_csv_streamify.js```
 ```bash
-Sum:  499999500000
-Time:  10.921s
-Memory: 9.2 MB
+Sum:  49999995000000
+Time:  110.858s
+Memory: 3.88 MB
 ```
 ---
 
@@ -126,9 +126,11 @@ end
 
 ```$ ruby ruby_parse.rb```
 ```bash
-Sum: 499999500000
-Time: 10.38s
-Memory: 0.86 MB
+Sum: 49999995000000
+Time: 105.97s
+Memory: 0.81 MB
 ```
 
-<!-- **It's unclear why the Node implementations here use more memory. Note that the entire CSV (75MB) is not loaded into memory. The Ruby script appears more resilient in terms of disc streaming due to the very small size.** -->
+**Results: The node fast-csv implementation is the fastest, while the ruby implementation uses the least amount of memory.**
+
+**All implementations stream the file contents on-the-fly without loading / buffering them into memory.**

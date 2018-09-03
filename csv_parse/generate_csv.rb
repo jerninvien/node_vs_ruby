@@ -12,7 +12,7 @@ country = "Pink Country"
 print_memory_usage do
   print_time_spent do
     CSV.open('data.csv', 'w', write_headers: true, headers: headers) do |csv|
-      1_000_000.times do |i|
+      10_000_000.times do |i|
         csv << [i, name, email, city, street, country]
       end
     end
