@@ -75,8 +75,8 @@ Memory: 14.7 MB
 ```$ node node_parse_csv_streamify.js```
 ```bash
 Sum:  499999500000
-Time:  11.057s
-Memory: 13.96 MB
+Time:  10.921s
+Memory: 9.2 MB
 ```
 ---
 
