@@ -1,13 +1,12 @@
 var fs = require('fs');
-var csv = require('fast-csv');
+var csv = require('csv-streamify');
 
 const before = Date.now();
+const parser = csv({objectMode: true, columns: true});
 
-var stream = fs.createReadStream('data.csv');
 var sum = 0;
 
-csv
-  .fromStream(stream, {headers : true})
+parser
   .on('data', data => sum += parseInt(data['id']))
   .on('end', () => {
     console.log('Sum: ', sum);
@@ -15,3 +14,5 @@ csv
     const used = process.memoryUsage().heapUsed / 1024 / 1024;
     console.log(`Memory: ${Math.round(used * 100) / 100} MB`);
   });
+
+fs.createReadStream('data.csv').pipe(parser);

@@ -65,11 +65,18 @@ csv
   });
 ```
 
-```$ node node_parse.js```
+```$ node node_parse_fast_csv.js```
 ```bash
 Sum:  499999500000
-Time:  5.74s
-Memory: 18.05 MB
+Time:  4.978s
+Memory: 14.7 MB
+```
+
+```$ node node_parse_csv_streamify.js```
+```bash
+Sum:  499999500000
+Time:  11.057s
+Memory: 13.96 MB
 ```
 ---
 
@@ -93,8 +100,8 @@ end
 ```$ ruby ruby_parse.rb```
 ```bash
 Sum: 499999500000
-Time: 11.88s
-Memory: 0.57 MB
+Time: 10.38s
+Memory: 0.86 MB
 ```
 
-<!-- **It's unclear why the Node implementation here is twice as fast but uses ~30x the memory. Note that the entire CSV (75MB) wasn't loaded into memory. The Ruby script appears more resilient in terms of disc streaming.** -->
+<!-- **It's unclear why the Node implementations here use more memory. Note that the entire CSV (75MB) is not loaded into memory. The Ruby script appears more resilient in terms of disc streaming due to the very small size.** -->
