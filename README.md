@@ -1,9 +1,14 @@
 # Node vs Ruby
-Comparisons of memory usage and speed of common tasks using Node and Ruby
+Comparisons of memory usage and speed of common tasks using Node and Ruby.
+
+## 1. CSV Parsing / Reading
+
+Inside `csv_parse` folder
 
 Ruby adapted from https://dalibornasevic.com/posts/68-processing-large-csv-files-with-ruby
 
-### Generate 1,000,000 line csv file
+
+### Generate 1,000,000 line CSV (~75MB)
 
 ```ruby
 require 'csv'
@@ -34,8 +39,11 @@ Time: 6.61
 Memory: 1.12 MB
 ```
 
+---
 
-### Compare Node vs Ruby
+### Run Comparisons
+
+These scripts should not load the entire test file (~75MB) into memory, rather they should stream the contents. You should be able to run them on any CSV regardless of file size or hardware restraints.
 
 ```javascript
 var fs = require('fs');
@@ -82,9 +90,11 @@ print_memory_usage do
 end
 ```
 
-```$ ruby parse.rb```
+```$ ruby ruby_parse.rb```
 ```bash
 Sum: 499999500000
 Time: 11.88s
 Memory: 0.57 MB
 ```
+
+<!-- **It's unclear why the Node implementation here is twice as fast but uses ~30x the memory. Note that the entire CSV (75MB) wasn't loaded into memory. The Ruby script appears more resilient in terms of disc streaming.** -->

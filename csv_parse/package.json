@@ -4,6 +4,7 @@
   "description": "Comparisons of memory usage and speed of common tasks using Node and Ruby",
   "main": "node_parse.js",
   "dependencies": {
+    "csv-streamify": "^4.0.0",
     "fast-csv": "^2.4.1"
   },
   "devDependencies": {},
